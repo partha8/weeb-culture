@@ -1,7 +1,7 @@
 import React from "react";
 import "./sidebar.css";
 
-import { AiFillHome } from "react-icons/ai";
+import { AiFillHome, AiOutlineLike } from "react-icons/ai";
 import {
   MdOutlineExplore,
   MdOutlineHistory,
@@ -40,6 +40,13 @@ export const Sidebar = () => {
           className={({ isActive }) => (isActive ? "active" : "")}
         >
           <RiPlayList2Fill />
+        </NavLink>
+
+        <NavLink
+          to="/liked-videos"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          <AiOutlineLike />
         </NavLink>
 
         <NavLink
