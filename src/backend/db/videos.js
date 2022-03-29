@@ -25,19 +25,19 @@ export const videos = [
   },
 
   {
-    _id: "4Vpm2gqFAUA",
+    _id: "c6WSS7HyKQA",
     title: "Komi Can't Communicate Season 2 - Official Trailer",
     desc: ``,
-    uploadDate: "Mar 24, 2022",
+    uploadDate: "Mar 16, 2022",
     thumbnail: {
-      src: "https://img.youtube.com/vi/4Vpm2gqFAUA/0.jpg",
+      src: "https://img.youtube.com/vi/c6WSS7HyKQA/0.jpg",
       alt: "Komi Can't Communicate Season 2 - Official Trailer",
     },
     categoryName: "Trailers",
     creator: {
-      name: "AnimeHypeアニメ日本",
+      name: "AniTV",
       avatar:
-        "https://yt3.ggpht.com/ytc/AKedOLTqBhsaUG41WGkU1AQuOjCu5-1fjyPS_l-dV8Xzqw=s88-c-k-c0x00ffffff-no-rj",
+        "https://yt3.ggpht.com/vr0sPsaHSKIDyWCIZt9AKtemHwWnS27Ple8aP2CzZ_OC4uW1mJAm4dJK5Anbcpid9-F12Bi-=s88-c-k-c0x00ffffff-no-rj",
     },
     popular: true,
     newArrival: true,

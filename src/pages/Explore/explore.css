@@ -1,0 +1,95 @@
+.btn {
+  background: var(--tertiary-color);
+  margin: 8px;
+  transition: var(--transition-two);
+}
+
+.btn:hover {
+  background: var(--hover-color);
+}
+
+.category-btns .btn.active {
+  background: var(--font-color-light);
+  color: var(--font-color-dark);
+}
+
+.pages {
+  width: calc(100vw - 4rem);
+}
+
+/* videos */
+
+.videos-container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, 23.36rem);
+  margin: 1rem 0;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.video-card {
+  transition: var(--transition-two);
+  background: var(--tertiary-color);
+  height: 100%;
+  border-radius: 10px;
+}
+
+.thumbnail {
+  height: 13rem;
+  cursor: pointer;
+}
+
+.video-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.video-card .text-container {
+  display: flex;
+  gap: 10px;
+  text-align: left;
+  position: relative;
+}
+
+.text-container p {
+  margin: 0;
+}
+
+.video-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.menu {
+  margin-left: auto;
+}
+
+.video-card .menu > * {
+  margin-top: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  right: 1.5rem;
+  top: 0.5rem;
+  z-index: 2;
+  background: var(--bg-color);
+}
+
+.item {
+  border: none;
+}
+
+.item:hover {
+  background: var(--hover-color);
+}

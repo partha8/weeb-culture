@@ -6,9 +6,18 @@ export const videosReducer = (state, action) => {
         categories: [...action.payload],
       };
     }
+    case "SET_VIDEOS": {
+      return {
+        ...state,
+        videos: action.payload,
+      };
+    }
 
     case "SORT_BY_CATEGORY": {
-      return state;
+      return {
+        ...state,
+        sortByCategory: action.payload,
+      };
     }
     default:
       return state;

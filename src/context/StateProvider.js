@@ -1,11 +1,14 @@
-import React, { createContext, useContext, useReducer, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useReducer,
+  useState,
+} from "react";
 import { videosReducer } from "../reducers/videosReducer";
 
 const StateContext = createContext();
 
 const StateProvider = ({ children }) => {
-  // for submenu, responsive navbar
-  const [showMenu, setShowMenu] = useState(false);
 
   // for toast
   const [toast, setToast] = useState({
@@ -25,10 +28,19 @@ const StateProvider = ({ children }) => {
     history: [],
     categories: [],
     likedVideos: [],
+    sortByCategory: "All",
   };
 
   const [
-    { videos, watchLater, playlists, history, categories, likedVideos },
+    {
+      videos,
+      watchLater,
+      playlists,
+      history,
+      categories,
+      likedVideos,
+      sortByCategory,
+    },
     videosDispatch,
   ] = useReducer(videosReducer, initialStates);
 
@@ -41,6 +53,7 @@ const StateProvider = ({ children }) => {
         history,
         categories,
         likedVideos,
+        sortByCategory,
 
         toast,
 

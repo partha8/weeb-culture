@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 export const Home = () => {
   const { categories, videosDispatch } = useStateContext();
-  console.log(categories);
+
   return (
     <>
       <main className="container home-container">
@@ -35,7 +35,7 @@ export const Home = () => {
 
           {/* categories section */}
           <div className="categories">
-            <h3 className="text-center">Categories</h3>
+            <h3 className="text-center underline">Categories</h3>
             <section className="categories-container">
               {categories.map((category) => {
                 const { _id, categoryName, image } = category;
