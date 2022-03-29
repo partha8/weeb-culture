@@ -1,0 +1,63 @@
+.nav {
+  width: 100%;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  height: 5rem;
+  background: var(--secondary-color);
+}
+
+.nav h2 {
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.accent-color {
+  color: var(--accent-color);
+}
+
+.search-bar {
+  background: var(--tertiary-color);
+  padding: 0.5rem;
+  border-radius: var(--borderRadius);
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.search {
+  outline: none;
+  border: none;
+  background: none;
+  color: var(--font-color-light);
+  padding: 0.5rem;
+}
+
+.search::placeholder {
+  color: var(--font-color-light);
+  text-transform: capitalize;
+}
+
+.search-icon {
+  cursor: pointer;
+}
+
+.account-section {
+  border: 1px solid var(--font-color-light);
+  padding: 5px;
+  height: 2.1rem;
+  width: 2.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.user {
+  color: var(--font-color-light);
+}

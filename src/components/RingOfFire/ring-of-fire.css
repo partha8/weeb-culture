@@ -1,0 +1,62 @@
+.circle-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.circle {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  filter: url(#wavy) blur(1px);
+}
+
+.circle:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 10%;
+  border: 20px solid #db570b;
+  border-radius: 50%;
+  box-shadow: 0 0 50px #db570b, inset 0 0 50px #db570b;
+  -webkit-box-reflect: below 10px
+    linear-gradient(transparent, transparent, #0002);
+  animation: animate 5s linear infinite;
+}
+
+.circle:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 10%;
+  border: 20px solid #f5de56;
+  border-radius: 50%;
+  box-shadow: 0 0 50px #f5de56, inset 0 0 50px #f5de56;
+}
+
+@keyframes animate {
+  0% {
+    box-shadow: 0 0 50px #db570b, inset 0 0 50px #db570b;
+  }
+  20% {
+    box-shadow: 0 0 40px #db570b, inset 0 0 60px #db570b;
+  }
+  40% {
+    box-shadow: 0 0 40px #db570b, inset 0 0 80px #db570b;
+  }
+  60% {
+    box-shadow: 0 0 80px #db570b, inset 0 0 80px #db570b;
+  }
+  80% {
+    box-shadow: 0 0 100px #db570b, inset 0 0 100px #db570b;
+  }
+  100% {
+    box-shadow: 0 0 50px #db570b, inset 0 0 50px #db570b;
+  }
+}
+
+.circle-container svg {
+  width: 0;
+  height: 0;
+}
