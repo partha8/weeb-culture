@@ -1,0 +1,36 @@
+.aside {
+  height: calc(100vh - 5rem);
+  width: max-content;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 4rem;
+  position: sticky;
+  top: 5rem;
+  font-size: 1.4rem;
+  background: var(--secondary-color);
+}
+
+.aside > * {
+  cursor: pointer;
+}
+
+.active {
+  background: var(--tertiary-color);
+}
+
+.aside-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aside-links > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 3.5rem;
+}
