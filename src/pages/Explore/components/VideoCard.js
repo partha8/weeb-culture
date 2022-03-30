@@ -23,7 +23,9 @@ export const VideoCard = ({ _id, thumbnail, creator, title }) => {
       <div className="text-container">
         <img className="avatar avatar-standard" src={creator.avatar} />
         <div className="details">
-          <p className="video-title">{title}</p>
+          <Link to={`/video/${_id}`}>
+            <p className="video-title">{title}</p>
+          </Link>
           <p className="quiet">{creator.name}</p>
         </div>
         <div className="menu">
