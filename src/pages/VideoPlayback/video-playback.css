@@ -1,0 +1,58 @@
+.video-details {
+  /* display: flex;
+  justify-content: center; */
+  /* flex-wrap: wrap; */
+  gap: 1.2rem;
+  width: 70%;
+}
+.player-container {
+  aspect-ratio: 16/9;
+  width: 100%;
+}
+
+.must-watch {
+  overflow: auto;
+  height: 35rem;
+  padding: 0.5rem;
+  border: 1px solid var(--tertiary-color);
+}
+
+.popular-videos {
+  height: auto;
+  width: 20rem;
+
+}
+
+.creator-details {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  gap: 10px;
+}
+
+.video-page {
+  display: flex;
+  width: calc(100vw - 3rem);
+  padding: 2rem;
+  gap: 1rem;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1045px) {
+  /* .player-container {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+  } */
+  .video-details {
+    width: 100%;
+  }
+  .video-page {
+    flex-direction: column;
+  }
+
+  .popular-videos {
+    margin: 1rem auto;
+  }
+}
