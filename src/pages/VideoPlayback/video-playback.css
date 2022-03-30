@@ -1,7 +1,4 @@
 .video-details {
-  /* display: flex;
-  justify-content: center; */
-  /* flex-wrap: wrap; */
   gap: 1.2rem;
   width: 70%;
 }
@@ -16,6 +13,7 @@
   padding: 0.5rem;
   border: 1px solid var(--tertiary-color);
 }
+
 
 .popular-videos {
   height: auto;
@@ -40,14 +38,10 @@
 }
 
 @media screen and (max-width: 1045px) {
-  /* .player-container {
-    width: 90%;
-    margin: auto;
-    text-align: center;
-  } */
   .video-details {
     width: 100%;
   }
+
   .video-page {
     flex-direction: column;
   }

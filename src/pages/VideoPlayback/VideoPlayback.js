@@ -38,34 +38,37 @@ export const VideoPlayback = () => {
 
         <div className="pages video-page">
           {!loading && (
-            <section className="video-details">
-              <div className="player-container">
-                <ReactPlayer
-                  url={`https://www.youtube.com/embed/${video._id}`}
-                  controls={true}
-                  width={"100%"}
-                  height={"100%"}
-                />
-              </div>
-              <div className="text-container">
-                <h3 className="underline">{video.title}</h3>
-                <div className="creator-details">
-                  <img
-                    className="avatar avatar-standard"
-                    src={video.creator.avatar}
-                    alt={video.creator.name}
+            <>
+              <section className="video-details">
+                <div className="player-container">
+                  <ReactPlayer
+                    url={`https://www.youtube.com/embed/${video._id}`}
+                    controls={true}
+                    width={"100%"}
+                    height={"100%"}
                   />
-                  <span>{video.creator.name}</span>
                 </div>
-                <p>{video.desc}</p>
+                <div className="text-container">
+                  <h3 className="underline">{video.title}</h3>
+                  <div className="creator-details">
+                    <img
+                      className="avatar avatar-standard"
+                      src={video.creator.avatar}
+                      alt={video.creator.name}
+                    />
+                    <span>{video.creator.name}</span>
+                  </div>
+                  <p>{video.desc}</p>
+                </div>
+              </section>
+              <div className="must-watch">
+                <h4 className="text-center underline">Must Watch</h4>
+                {shuffledArray.map((item) => {
+                  return <VideoCard key={item._id} {...item} />;
+                })}
               </div>
-            </section>
+            </>
           )}
-          <div className="must-watch">
-            {shuffledArray.map((item) => {
-              return <VideoCard key={item._id} {...item} />;
-            })}
-          </div>
         </div>
       </div>
       <Footer />
