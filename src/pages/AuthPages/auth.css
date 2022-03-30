@@ -1,0 +1,77 @@
+.form-container {
+  margin-top: 5rem;
+  padding: 2.5rem;
+  max-width: 600px;
+  margin: 2.5rem auto;
+  color: var(--font-color-light);
+  background: var(--secondary-color);
+  border-radius: var(--borderRadius);
+}
+
+.tab-group {
+  list-style: none;
+  display: flex;
+}
+
+.tab {
+  text-decoration: none;
+  background: var(--tertiary-color);
+  color: var(--font-color-light);
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.auth-label {
+  font-size: 1rem;
+}
+
+.req {
+  color: var(--accent-color);
+}
+
+.input-container {
+  display: flex;
+  background: var(--tertiary-color);
+  align-items: center;
+  border-radius: var(--borderRadius);
+}
+
+.auth-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background: none;
+  color: var(--font-color-light);
+}
+
+.show-password {
+  font-size: 1.4rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.btn-form-action {
+  width: 8rem;
+  margin: 10px auto;
+}
+
+.forgot {
+  font-size: 10px;
+  margin-top: 5px;
+  text-align: right;
+  color: var(--font-color-light);
+}
+
+.forgot:hover {
+  text-decoration: underline;
+}
+
+.current-tab {
+  background: none;
+  border-bottom: 1px solid var(--accent-color);
+}
