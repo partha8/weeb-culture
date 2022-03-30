@@ -1,7 +1,7 @@
 import React from "react";
 import "./sidebar.css";
 
-import { AiFillHome, AiOutlineLike } from "react-icons/ai";
+import { AiOutlineHome, AiOutlineLike } from "react-icons/ai";
 import {
   MdOutlineExplore,
   MdOutlineHistory,
@@ -18,7 +18,7 @@ export const Sidebar = () => {
           to="/"
           className={({ isActive }) => (isActive ? "active" : "")}
         >
-          <AiFillHome />
+          <AiOutlineHome />
         </NavLink>
 
         <NavLink
