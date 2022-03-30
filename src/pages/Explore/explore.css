@@ -78,18 +78,3 @@
   cursor: pointer;
 }
 
-.dropdown {
-  position: absolute;
-  right: 1.5rem;
-  top: 0.5rem;
-  z-index: 2;
-  background: var(--bg-color);
-}
-
-.item {
-  border: none;
-}
-
-.item:hover {
-  background: var(--hover-color);
-}

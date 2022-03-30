@@ -14,6 +14,7 @@
 .nav h2 {
   margin: 0;
   letter-spacing: 2px;
+  cursor: pointer;
 }
 
 .accent-color {
@@ -60,4 +61,8 @@
 
 .user {
   color: var(--font-color-light);
+}
+
+.auth-drawer {
+  top: 4rem;
 }

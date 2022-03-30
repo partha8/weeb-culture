@@ -14,7 +14,7 @@ export const VideoCard = ({ thumbnail, creator, title }) => {
           <p className="quiet">{creator.name}</p>
         </div>
         <div className="menu">
-          <CTABtn />
+          <CTABtn/>
         </div>
       </div>
     </div>
