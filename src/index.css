@@ -71,7 +71,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #ebebeb;
+  background-color: var(--bg-color);
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
@@ -79,5 +79,5 @@ body {
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  background: #6d6d6d;
+  background: var(--font-color-light);
 }
