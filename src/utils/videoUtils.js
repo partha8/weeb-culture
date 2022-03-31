@@ -42,3 +42,23 @@ export const removeFromHistory = async (id, videosDispatch, toastHandler) => {
     console.error(error);
   }
 };
+
+export const clearHistory = async (videosDispatch, toastHandler) => {
+  const encodedToken = localStorage.getItem("token");
+  try {
+    const response = await axios.delete(`/api/user/history/all`, {
+      headers: {
+        authorization: encodedToken,
+      },
+    });
+    if (response.status === 200 || response.status === 201) {
+      videosDispatch({
+        type: "SET_HISTORY",
+        payload: response.data.history,
+      });
+      toastHandler(true, "History Clear!", "success");
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};

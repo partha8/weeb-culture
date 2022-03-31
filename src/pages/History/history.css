@@ -4,3 +4,9 @@
   align-items: center;
   padding: 1rem;
 }
+
+.history-btn-container {
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
