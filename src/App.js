@@ -52,7 +52,7 @@ export const App = () => {
             </PrivateRoute>
           }
         />
-        
+
         <Route path="/video/:id" element={<VideoPlayback />} />
         <Route path="*" element={<Error404 />} />
       </Routes>

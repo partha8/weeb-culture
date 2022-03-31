@@ -85,7 +85,7 @@ export const AuthProvider = ({ children }) => {
           );
           toastHandler(
             true,
-            `Welcome ${firstName} to Algern Clothing!`,
+            `Welcome ${firstName} to Weeb Culture!`,
             "success"
           );
           navigate("/profile");

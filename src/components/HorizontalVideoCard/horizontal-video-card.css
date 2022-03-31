@@ -1,0 +1,45 @@
+.horizontal-video-card {
+  width: 70%;
+  height: auto;
+  display: flex;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.hz-thumbnail {
+  min-width: 40%;
+  aspect-ratio: 16/9;
+}
+
+.hz-text-container {
+  padding: 0.5rem;
+}
+
+.hz-thumbnail .video-image {
+  border-radius: 0;
+}
+
+.hz-desc {
+  margin-top: 5px;
+}
+
+.hz-creator {
+  font-weight: bold;
+}
+
+.quiet {
+  color: var(--clr-grey-70);
+}
+
+.hz-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  gap: 2px;
+}
+
+.hz-btn-container > * {
+  cursor: pointer;
+  font-size: 1.2rem;
+}

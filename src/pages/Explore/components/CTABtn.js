@@ -1,6 +1,6 @@
 import React from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { useState} from "react";
+import { useState } from "react";
 import { useClickOutside } from "../../../hooks";
 
 export const CTABtn = () => {
@@ -9,7 +9,7 @@ export const CTABtn = () => {
   const domNode = useClickOutside(() => setDropdown(false));
 
   return (
-    <div>
+    <div className="menu-btn">
       <BsThreeDotsVertical onClick={() => setDropdown(!dropdown)} />
       {dropdown && (
         <div ref={domNode} className="stacked dropdown">

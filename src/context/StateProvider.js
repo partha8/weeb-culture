@@ -1,15 +1,9 @@
-import React, {
-  createContext,
-  useContext,
-  useReducer,
-  useState,
-} from "react";
+import React, { createContext, useContext, useReducer, useState } from "react";
 import { videosReducer } from "../reducers/videosReducer";
 
 const StateContext = createContext();
 
 const StateProvider = ({ children }) => {
-
   // for toast
   const [toast, setToast] = useState({
     showToast: false,

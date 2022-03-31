@@ -2,7 +2,6 @@ export const authReducer = (state, action) => {
   switch (action.type) {
     case "HANDLE_USER": {
       const { user, encodedToken } = action.payload;
-      console.log(user);
       return {
         ...state,
         _id: user._id,
