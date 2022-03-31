@@ -19,6 +19,7 @@ import {
   SignUp,
   Error404,
   History,
+  VideoPlayback,
 } from "./pages";
 
 import { PrivateRoute } from "./routes/PrivateRoute";
@@ -51,6 +52,8 @@ export const App = () => {
             </PrivateRoute>
           }
         />
+        
+        <Route path="/video/:id" element={<VideoPlayback />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </>

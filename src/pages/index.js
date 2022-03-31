@@ -5,3 +5,4 @@ export { SignUp } from "./AuthPages/";
 export { Login } from "./AuthPages";
 export { Error404 } from "./Error404/Error404";
 export { History } from "./History/History";
+export { VideoPlayback } from "./VideoPlayback/VideoPlayback";
