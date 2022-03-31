@@ -28,7 +28,7 @@ export const App = () => {
   useGetCategories();
   useGetVideos();
   useGetHistory();
-  useSignup();
+  // useSignup();
 
   const { toast } = useStateContext();
   const { userState } = useAuthContext();
