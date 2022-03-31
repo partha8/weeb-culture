@@ -1,6 +1,6 @@
 .header {
   height: 37rem;
-
+  font-family: 'Merriweather', serif;
   display: flex;
 
   background: rgb(195, 28, 28);
