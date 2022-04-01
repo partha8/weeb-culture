@@ -1,7 +1,8 @@
 .header {
   height: 37rem;
-  font-family: 'Merriweather', serif;
+  font-family: "Merriweather", serif;
   display: flex;
+  justify-content: center;
 
   background: rgb(195, 28, 28);
   background: linear-gradient(
