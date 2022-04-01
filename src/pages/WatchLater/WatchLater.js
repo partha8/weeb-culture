@@ -10,9 +10,7 @@ export const WatchLater = () => {
       <div className="container">
         <Sidebar />
         <div className="pages watchLater-page">
-          <h3 className="text-center margin-top-1">
-            Watch Later {watchLater.length}
-          </h3>
+          <h3 className="text-center">Watch Later {watchLater.length}</h3>
 
           {watchLater.map((item) => {
             return <HorizontalVideoCard key={item._id} {...item} />;

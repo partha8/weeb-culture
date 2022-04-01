@@ -10,7 +10,7 @@ export const LikedVideos = () => {
       <div className="container">
         <Sidebar />
         <div className="pages likedVideos-page">
-          <h3 className="text-center margin-top-1">
+          <h3 className="text-center">
             Liked Videos {likedVideos.length}
           </h3>
 

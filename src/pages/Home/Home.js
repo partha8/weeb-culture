@@ -21,10 +21,12 @@ export const Home = () => {
             <ParticlesContainer />
             <div className="text-img-container">
               <div className="text-container">
-                <h2>
-                  Some text will come here, idk yet, so please help! LMAO
-                  HAHAHAHAHAHAHAHAHAHA jbdfksjdbfksdbfkdb
+                <h2 className="text-center">
+                  A video library for all things Anime and Japanese
                 </h2>
+                <Link to="/explore">
+                  <button className="btn hero-btn">Explore</button>
+                </Link>
               </div>
               <div className="img-container">
                 <img className="hero-img" src={rengoku} />
@@ -35,7 +37,7 @@ export const Home = () => {
 
           {/* categories section */}
           <div className="categories">
-            <h3 className="text-center underline">Categories</h3>
+            <h3 className="text-center underline margin-top-1">Categories</h3>
             <section className="categories-container">
               {categories.map((category) => {
                 const { _id, categoryName, image } = category;
