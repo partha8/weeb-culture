@@ -1,13 +1,13 @@
 .horizontal-video-card {
   width: 70%;
-  height: auto;
   display: flex;
   position: relative;
   margin-bottom: 1rem;
 }
 
 .hz-thumbnail {
-  min-width: 40%;
+  /* min-width: 40%; */
+  width: 20rem;
   aspect-ratio: 16/9;
 }
 
@@ -32,11 +32,13 @@
 }
 
 .hz-btn-container {
+  margin-left: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   height: fit-content;
   gap: 2px;
+  padding: 0.5rem 0;
 }
 
 .hz-btn-container > * {

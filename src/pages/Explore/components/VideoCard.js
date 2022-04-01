@@ -2,7 +2,8 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { CTABtn } from "./CTABtn";
 
-export const VideoCard = ({ _id, thumbnail, creator, title }) => {
+export const VideoCard = (video) => {
+  const { _id, thumbnail, creator, title } = video;
   const location = useLocation();
   return (
     <div
@@ -29,7 +30,7 @@ export const VideoCard = ({ _id, thumbnail, creator, title }) => {
           <p className="quiet">{creator.name}</p>
         </div>
         <div className="menu">
-          <CTABtn />
+          <CTABtn {...video} />
         </div>
       </div>
     </div>

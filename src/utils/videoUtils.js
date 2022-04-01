@@ -62,3 +62,61 @@ export const clearHistory = async (videosDispatch, toastHandler) => {
     console.error(error);
   }
 };
+
+export const addToWatchLater = async (
+  video,
+  watchLater,
+  videosDispatch,
+  toastHandler
+) => {
+  const encodedToken = localStorage.getItem("token");
+
+  if (!watchLater.some((item) => item._id === video._id)) {
+    try {
+      const response = await axios.post(
+        "/api/user/watchlater",
+        { video },
+        {
+          headers: {
+            authorization: encodedToken,
+          },
+        }
+      );
+      if (response.status === 200 || response.status === 201) {
+        videosDispatch({
+          type: "SET_WATCHLATER",
+          payload: response.data.watchlater,
+        });
+        toastHandler(true, "Added to watch later!", "success");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  } else {
+    removeFromWatchLater(video._id, videosDispatch, toastHandler);
+  }
+};
+
+export const removeFromWatchLater = async (
+  id,
+  videosDispatch,
+  toastHandler
+) => {
+  const encodedToken = localStorage.getItem("token");
+  try {
+    const response = await axios.delete(`/api/user/watchlater/${id}`, {
+      headers: {
+        authorization: encodedToken,
+      },
+    });
+    if (response.status === 200 || response.status === 201) {
+      videosDispatch({
+        type: "SET_WATCHLATER",
+        payload: response.data.watchlater,
+      });
+      toastHandler(true, "Video removed from Watch Later", "success");
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
