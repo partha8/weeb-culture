@@ -21,6 +21,7 @@ import {
   History,
   VideoPlayback,
 } from "./pages";
+import { WatchLater } from "./pages/WatchLater/WatchLater";
 
 import { PrivateRoute } from "./routes/PrivateRoute";
 
@@ -49,6 +50,15 @@ export const App = () => {
           element={
             <PrivateRoute>
               <History />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/watch-later"
+          element={
+            <PrivateRoute>
+              <WatchLater />
             </PrivateRoute>
           }
         />

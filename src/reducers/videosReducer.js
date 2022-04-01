@@ -1,3 +1,5 @@
+import { act } from "@testing-library/react";
+
 export const videosReducer = (state, action) => {
   switch (action.type) {
     case "SET_CATEGORIES": {
@@ -23,6 +25,12 @@ export const videosReducer = (state, action) => {
       return {
         ...state,
         history: action.payload,
+      };
+    }
+    case "SET_WATCHLATER": {
+      return {
+        ...state,
+        watchLater: action.payload,
       };
     }
     default:
