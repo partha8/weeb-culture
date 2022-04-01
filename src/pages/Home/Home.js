@@ -13,9 +13,9 @@ export const Home = () => {
 
   return (
     <>
-      <main className="container home-container">
+      <main className="container">
         <Sidebar />
-        <div>
+        <div className="pages home-container">
           {/* header/hero */}
           <header className="header">
             <ParticlesContainer />
