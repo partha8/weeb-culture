@@ -33,6 +33,12 @@ export const videosReducer = (state, action) => {
         watchLater: action.payload,
       };
     }
+    case "SET_LIKEDVIDEOS": {
+      return {
+        ...state,
+        likedVideos: action.payload,
+      };
+    }
     default:
       return state;
   }

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useClickOutside } from "../../../hooks";
 import { BsPlusCircle, BsDashCircle } from "react-icons/bs";
 import { useStateContext } from "../../../context/StateProvider";
-import { addToWatchLater } from "../../../utils/videoUtils";
+import { addToLikedVideos, addToWatchLater } from "../../../utils/videoUtils";
 import { useLocation } from "react-router-dom";
 
 export const CTABtn = (video) => {
@@ -44,8 +44,26 @@ export const CTABtn = (video) => {
               )}{" "}
               Watch Later
             </li>
-            <li className="item">
-              <BsPlusCircle />
+            <li
+              onClick={() => {
+                if (encodedToken) {
+                  addToLikedVideos(
+                    video,
+                    watchLater,
+                    videosDispatch,
+                    toastHandler
+                  );
+                } else {
+                  toastHandler(true, "You need to login first!", "error");
+                }
+              }}
+              className="item"
+            >
+              {likedVideos.some((item) => item._id === video._id) ? (
+                <BsDashCircle />
+              ) : (
+                <BsPlusCircle />
+              )}
               Like Video
             </li>
           </ul>

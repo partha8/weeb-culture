@@ -120,3 +120,61 @@ export const removeFromWatchLater = async (
     console.error(error);
   }
 };
+
+export const addToLikedVideos = async (
+  video,
+  likedVideos,
+  videosDispatch,
+  toastHandler
+) => {
+  const encodedToken = localStorage.getItem("token");
+
+  if (!likedVideos.some((item) => item._id === video._id)) {
+    try {
+      const response = await axios.post(
+        "/api/user/likes",
+        { video },
+        {
+          headers: {
+            authorization: encodedToken,
+          },
+        }
+      );
+      if (response.status === 200 || response.status === 201) {
+        videosDispatch({
+          type: "SET_LIKEDVIDEOS",
+          payload: response.data.likes,
+        });
+        toastHandler(true, "Added to Likes!", "success");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  } else {
+    removeFromLikedVideos(video._id, videosDispatch, toastHandler);
+  }
+};
+
+export const removeFromLikedVideos = async (
+  id,
+  videosDispatch,
+  toastHandler
+) => {
+  const encodedToken = localStorage.getItem("token");
+  try {
+    const response = await axios.delete(`/api/user/likes/${id}`, {
+      headers: {
+        authorization: encodedToken,
+      },
+    });
+    if (response.status === 200 || response.status === 201) {
+      videosDispatch({
+        type: "SET_LIKEDVIDEOS",
+        payload: response.data.likes,
+      });
+      toastHandler(true, "Video removed from Likes", "success");
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
