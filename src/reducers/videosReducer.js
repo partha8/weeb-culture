@@ -19,6 +19,12 @@ export const videosReducer = (state, action) => {
         sortByCategory: action.payload,
       };
     }
+    case "SET_HISTORY": {
+      return {
+        ...state,
+        history: action.payload,
+      };
+    }
     default:
       return state;
   }

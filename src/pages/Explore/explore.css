@@ -72,9 +72,8 @@
   margin-left: auto;
 }
 
-.video-card .menu > * {
+.menu-btn {
   margin-top: 6px;
   font-size: 1.1rem;
   cursor: pointer;
 }
-

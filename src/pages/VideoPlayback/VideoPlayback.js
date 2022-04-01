@@ -7,12 +7,15 @@ import "./video-playback.css";
 import { useStateContext } from "../../context/StateProvider";
 import { VideoCard } from "../Explore/components/VideoCard";
 import { shuffleArray } from "../../utils/shuffleArray";
+import { addToHistory } from "../../utils/videoUtils";
 
 export const VideoPlayback = () => {
+  const encodedToken = localStorage.getItem("token");
+
   let { id } = useParams();
   const [video, setvideo] = useState();
   const [loading, setLoading] = useState(true);
-  const { videos } = useStateContext();
+  const { videos, videosDispatch } = useStateContext();
 
   useEffect(() => {
     (async () => {
@@ -26,11 +29,10 @@ export const VideoPlayback = () => {
         console.error(error);
       }
     })();
-  }, []);
+  }, [id]);
 
   const popularVideos = videos.filter((video) => video.popular === true);
   const shuffledArray = shuffleArray(popularVideos);
-
   return (
     <>
       <div className="container">
@@ -46,6 +48,11 @@ export const VideoPlayback = () => {
                     controls={true}
                     width={"100%"}
                     height={"100%"}
+                    onStart={() => {
+                      if (encodedToken) {
+                        addToHistory(video, videosDispatch);
+                      }
+                    }}
                   />
                 </div>
                 <div className="text-container">
