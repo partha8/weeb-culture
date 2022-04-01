@@ -5,6 +5,7 @@ import { CTABtn } from "../../pages/Explore/components/CTABtn";
 import { Link, useLocation } from "react-router-dom";
 import {
   removeFromHistory,
+  removeFromLikedVideos,
   removeFromWatchLater,
 } from "../../utils/videoUtils";
 import { useStateContext } from "../../context/StateProvider";
@@ -41,6 +42,9 @@ export const HorizontalVideoCard = (video) => {
             }
             if (location.pathname === "/watch-later") {
               removeFromWatchLater(_id, videosDispatch, toastHandler);
+            }
+            if (location.pathname === "/liked-videos") {
+              removeFromLikedVideos(_id, videosDispatch, toastHandler);
             }
           }}
         />

@@ -5,3 +5,4 @@ export { useClickOutside } from "./useClickOutside";
 export { useGetHistory } from "./useGetHistory";
 export { useSignup } from "./useSignup";
 export { useGetWatchLater } from "./useGetWatchLater";
+export { useGetLikedVideos } from "./useGetLikedVideos";

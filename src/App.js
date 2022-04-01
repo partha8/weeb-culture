@@ -9,6 +9,8 @@ import {
   useGetVideos,
   useSignup,
   useGetCategories,
+  useGetWatchLater,
+  useGetLikedVideos,
 } from "./hooks";
 
 import {
@@ -21,6 +23,7 @@ import {
   History,
   VideoPlayback,
 } from "./pages";
+import { LikedVideos } from "./pages/LikedVideos/LikedVideos";
 import { WatchLater } from "./pages/WatchLater/WatchLater";
 
 import { PrivateRoute } from "./routes/PrivateRoute";
@@ -29,6 +32,8 @@ export const App = () => {
   useGetCategories();
   useGetVideos();
   useGetHistory();
+  useGetWatchLater();
+  useGetLikedVideos();
   // useSignup();
 
   const { toast } = useStateContext();
@@ -59,6 +64,15 @@ export const App = () => {
           element={
             <PrivateRoute>
               <WatchLater />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/liked-videos"
+          element={
+            <PrivateRoute>
+              <LikedVideos />
             </PrivateRoute>
           }
         />
