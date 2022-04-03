@@ -39,7 +39,6 @@ export const App = () => {
   useGetWatchLater();
   useGetLikedVideos();
   useGetPlaylists();
-  useSignup();
 
   const { toast, showPlaylistModal } = useStateContext();
   const { userState } = useAuthContext();
