@@ -6,15 +6,22 @@ import { BsPlusCircle, BsDashCircle } from "react-icons/bs";
 import { useStateContext } from "../../../context/StateProvider";
 import { addToLikedVideos, addToWatchLater } from "../../../utils/videoUtils";
 import { useLocation } from "react-router-dom";
+import { useAuthContext } from "../../../context/AuthProvider";
 
 export const CTABtn = (video) => {
   const [dropdown, setDropdown] = useState(false);
 
   const domNode = useClickOutside(() => setDropdown(false));
-  const { watchLater, likedVideos, videosDispatch, toastHandler } =
-    useStateContext();
+  
+  const {
+    watchLater,
+    likedVideos,
+    videosDispatch,
+    toastHandler,
+    setShowPlaylistModal,
+  } = useStateContext();
 
-  const encodedToken = localStorage.getItem("token");
+  const { userState } = useAuthContext();
 
   return (
     <div className="menu-btn">
@@ -24,7 +31,7 @@ export const CTABtn = (video) => {
           <ul>
             <li
               onClick={() => {
-                if (encodedToken) {
+                if (userState._id) {
                   addToWatchLater(
                     video,
                     watchLater,
@@ -46,7 +53,7 @@ export const CTABtn = (video) => {
             </li>
             <li
               onClick={() => {
-                if (encodedToken) {
+                if (userState._id) {
                   addToLikedVideos(
                     video,
                     watchLater,
@@ -65,6 +72,21 @@ export const CTABtn = (video) => {
                 <BsPlusCircle />
               )}
               Like Video
+            </li>
+            <li
+              onClick={() => {
+                if (userState._id) {
+                  setShowPlaylistModal(true);
+                  setDropdown(false);
+                  videosDispatch({ type: "SET_SELECTED_VIDEO", payload: video });
+                } else {
+                  toastHandler(true, "You need to login first!", "error");
+                }
+              }}
+              className="item"
+            >
+              <BsPlusCircle />
+              Add to Playlist
             </li>
           </ul>
         </div>

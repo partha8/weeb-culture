@@ -1,6 +1,7 @@
+import Mockman from "mockman-js";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { Navbar, Toast } from "./components";
+import { Navbar, PlaylistModal, Toast } from "./components";
 import { useAuthContext } from "./context/AuthProvider";
 import { useStateContext } from "./context/StateProvider";
 
@@ -11,6 +12,7 @@ import {
   useGetCategories,
   useGetWatchLater,
   useGetLikedVideos,
+  useGetPlaylists,
 } from "./hooks";
 
 import {
@@ -22,9 +24,11 @@ import {
   Error404,
   History,
   VideoPlayback,
+  LikedVideos,
+  PlaylistsContainer,
+  WatchLater,
+  Playlist,
 } from "./pages";
-import { LikedVideos } from "./pages/LikedVideos/LikedVideos";
-import { WatchLater } from "./pages/WatchLater/WatchLater";
 
 import { PrivateRoute } from "./routes/PrivateRoute";
 
@@ -34,14 +38,16 @@ export const App = () => {
   useGetHistory();
   useGetWatchLater();
   useGetLikedVideos();
-  // useSignup();
+  useGetPlaylists();
+  useSignup();
 
-  const { toast } = useStateContext();
+  const { toast, showPlaylistModal } = useStateContext();
   const { userState } = useAuthContext();
 
   return (
     <>
       {toast.showToast && <Toast />}
+      {showPlaylistModal && <PlaylistModal />}
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -73,6 +79,24 @@ export const App = () => {
           element={
             <PrivateRoute>
               <LikedVideos />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/playlists"
+          element={
+            <PrivateRoute>
+              <PlaylistsContainer />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/playlist/:playlistId"
+          element={
+            <PrivateRoute>
+              <Playlist />
             </PrivateRoute>
           }
         />

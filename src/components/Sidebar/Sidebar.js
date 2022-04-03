@@ -36,7 +36,7 @@ export const Sidebar = () => {
         </NavLink>
 
         <NavLink
-          to="/playlist"
+          to="/playlists"
           className={({ isActive }) => (isActive ? "active" : "")}
         >
           <RiPlayList2Fill />

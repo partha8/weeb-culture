@@ -6,3 +6,4 @@ export { useGetHistory } from "./useGetHistory";
 export { useSignup } from "./useSignup";
 export { useGetWatchLater } from "./useGetWatchLater";
 export { useGetLikedVideos } from "./useGetLikedVideos";
+export { useGetPlaylists } from "./useGetPlaylists";
