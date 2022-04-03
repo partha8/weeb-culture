@@ -12,7 +12,7 @@ export const CTABtn = (video) => {
   const [dropdown, setDropdown] = useState(false);
 
   const domNode = useClickOutside(() => setDropdown(false));
-  
+
   const {
     watchLater,
     likedVideos,
@@ -56,7 +56,7 @@ export const CTABtn = (video) => {
                 if (userState._id) {
                   addToLikedVideos(
                     video,
-                    watchLater,
+                    likedVideos,
                     videosDispatch,
                     toastHandler
                   );
@@ -78,7 +78,10 @@ export const CTABtn = (video) => {
                 if (userState._id) {
                   setShowPlaylistModal(true);
                   setDropdown(false);
-                  videosDispatch({ type: "SET_SELECTED_VIDEO", payload: video });
+                  videosDispatch({
+                    type: "SET_SELECTED_VIDEO",
+                    payload: video,
+                  });
                 } else {
                   toastHandler(true, "You need to login first!", "error");
                 }
