@@ -50,7 +50,6 @@ export const addVideoToPlaylist = async (
   toastHandler
 ) => {
   const encodedToken = localStorage.getItem("token");
-  console.log("inside add");
 
   try {
     const response = await axios.post(
