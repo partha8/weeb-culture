@@ -15,10 +15,15 @@ const StateProvider = ({ children }) => {
     setToast({ showToast, message, type });
   };
 
+  const [showPlaylistModal, setShowPlaylistModal] = useState(false);
+
   const initialStates = {
+    loading: true,
     videos: [],
     watchLater: [],
     playlists: [],
+    currentPlaylist: null,
+    selectedVideo: null,
     history: [],
     categories: [],
     likedVideos: [],
@@ -34,6 +39,9 @@ const StateProvider = ({ children }) => {
       categories,
       likedVideos,
       sortByCategory,
+      selectedVideo,
+      loading,
+      currentPlaylist,
     },
     videosDispatch,
   ] = useReducer(videosReducer, initialStates);
@@ -48,11 +56,16 @@ const StateProvider = ({ children }) => {
         categories,
         likedVideos,
         sortByCategory,
+        selectedVideo,
+        showPlaylistModal,
+        currentPlaylist,
+        loading,
 
         toast,
 
         videosDispatch,
         toastHandler,
+        setShowPlaylistModal,
       }}
     >
       {children}

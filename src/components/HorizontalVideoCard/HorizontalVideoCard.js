@@ -1,17 +1,17 @@
 import React from "react";
 import "./horizontal-video-card.css";
 import { AiOutlineClose } from "react-icons/ai";
-import { CTABtn } from "../../pages/Explore/components/CTABtn";
 import { Link, useLocation } from "react-router-dom";
 import {
   removeFromHistory,
   removeFromLikedVideos,
   removeFromWatchLater,
 } from "../../utils/videoUtils";
+import { removeVideoFromPlaylist } from "../../utils/playlistUtils";
 import { useStateContext } from "../../context/StateProvider";
 
-export const HorizontalVideoCard = (video) => {
-  const { _id, title, thumbnail, creator, desc } = video;
+export const HorizontalVideoCard = (props) => {
+  const { _id, title, thumbnail, creator, desc, playlistId } = props;
   let location = useLocation();
   const { videosDispatch, toastHandler } = useStateContext();
 
@@ -45,6 +45,14 @@ export const HorizontalVideoCard = (video) => {
             }
             if (location.pathname === "/liked-videos") {
               removeFromLikedVideos(_id, videosDispatch, toastHandler);
+            }
+            if (location.pathname === `/playlist/${playlistId}`) {
+              removeVideoFromPlaylist(
+                _id,
+                videosDispatch,
+                playlistId,
+                toastHandler
+              );
             }
           }}
         />

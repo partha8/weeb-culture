@@ -1,0 +1,12 @@
+.playlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.playlist-btn-container {
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Footer, Sidebar } from "../../components";
 import { useStateContext } from "../../context/StateProvider";
 import { useFilteredVideos } from "../../hooks";
