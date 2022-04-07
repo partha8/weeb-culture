@@ -65,7 +65,7 @@
 
 ## Getting Started
 
-- clone the repository on your local machine with the command below in your terminal, and cd into the **Dekho-Video** folder
+- clone the repository on your local machine with the command below in your terminal, and cd into the **weeb-culture** folder
 
 ```
 git clone https://github.com/partha8/weeb-culture.git
