@@ -7,7 +7,7 @@ import "./playlists-container.css";
 import { Link } from "react-router-dom";
 
 export const PlaylistsContainer = () => {
-  const { playlists, videosDispatch } = useStateContext();
+  const { playlists, videosDispatch, setShowPlaylistModal } = useStateContext();
 
   useEffect(() => {
     videosDispatch({
@@ -21,7 +21,17 @@ export const PlaylistsContainer = () => {
       <div className="container">
         <Sidebar />
         <div className="pages playlists-page">
-          <h3 className="text-center">Playlists {playlists.length}</h3>
+          <div className="flex-center playlists-btn-container">
+            <h3 className="text-center">Playlists {playlists.length} </h3>
+            <button
+              className="btn"
+              onClick={() => {
+                setShowPlaylistModal(true);
+              }}
+            >
+              Create Playlist
+            </button>
+          </div>
           <div className="playlists">
             {playlists.map((playlist) => {
               const { _id, title } = playlist;

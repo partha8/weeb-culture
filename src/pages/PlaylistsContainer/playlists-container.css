@@ -21,3 +21,9 @@
   font-size: 1.2rem;
   position: relative;
 }
+
+.playlists-btn-container {
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
