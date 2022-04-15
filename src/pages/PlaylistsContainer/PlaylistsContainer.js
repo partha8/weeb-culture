@@ -27,6 +27,10 @@ export const PlaylistsContainer = () => {
               className="btn"
               onClick={() => {
                 setShowPlaylistModal(true);
+                videosDispatch({
+                  type: "SET_SELECTED_VIDEO",
+                  payload: null,
+                });
               }}
             >
               Create Playlist
