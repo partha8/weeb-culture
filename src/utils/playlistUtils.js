@@ -27,13 +27,15 @@ export const addToPlaylists = async (
           type: "SET_PLAYLISTS",
           payload: response.data.playlists,
         });
-        const playlistId = response.data.playlists[playlists.length]._id;
-        addVideoToPlaylist(
-          selectedVideo,
-          videosDispatch,
-          playlistId,
-          toastHandler
-        );
+        if (selectedVideo) {
+          const playlistId = response.data.playlists[playlists.length]._id;
+          addVideoToPlaylist(
+            selectedVideo,
+            videosDispatch,
+            playlistId,
+            toastHandler
+          );
+        }
       }
     } catch (error) {
       console.error(error);

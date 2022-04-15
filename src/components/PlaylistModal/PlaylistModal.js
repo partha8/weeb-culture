@@ -6,8 +6,9 @@ import { useClickOutside } from "../../hooks";
 import {
   addToPlaylists,
   addVideoToPlaylist,
-  removeVideoFromPlaylist
+  removeVideoFromPlaylist,
 } from "../../utils/playlistUtils";
+import { useLocation } from "react-router-dom";
 
 export const PlaylistModal = () => {
   const {
@@ -22,6 +23,8 @@ export const PlaylistModal = () => {
   const [title, setTitle] = useState("");
 
   const domNode = useClickOutside(() => setShowPlaylistModal(false));
+
+  const location = useLocation();
 
   const changeHandler = (e, playlistId) => {
     if (e.target.checked) {
@@ -54,30 +57,35 @@ export const PlaylistModal = () => {
         >
           <FaTimes />
         </button>
-        <h4>Save To</h4>
 
-        {playlists.length > 0 && (
-          <div className="playlists-container">
-            {playlists.map((playlist) => {
-              const { _id, title } = playlist;
-              return (
-                <div key={_id}>
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={playlist.videos.some(
-                        (item) => item._id === selectedVideo._id
-                      )}
-                      onChange={(e) => {
-                        changeHandler(e, _id);
-                      }}
-                    />
-                    {title}
-                  </label>
-                </div>
-              );
-            })}
-          </div>
+        {location.pathname !== "/playlists" && (
+          <>
+            <h4>Save To</h4>
+
+            {playlists.length > 0 && (
+              <div className="playlists-container">
+                {playlists.map((playlist) => {
+                  const { _id, title } = playlist;
+                  return (
+                    <div key={_id}>
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked={playlist.videos.some(
+                            (item) => item._id === selectedVideo._id
+                          )}
+                          onChange={(e) => {
+                            changeHandler(e, _id);
+                          }}
+                        />
+                        {title}
+                      </label>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </>
         )}
 
         <div className="create-playlist-input">
