@@ -90,10 +90,6 @@ export const Login = () => {
                 </span>
               </div>
             </div>
-            
-            <Link className="forgot" to="/forgot-password">
-              Forgot Password?
-            </Link>
 
             <button className="btn btn-form-action">Log In</button>
             <button onClick={guestLogin} className="btn btn-form-action ">

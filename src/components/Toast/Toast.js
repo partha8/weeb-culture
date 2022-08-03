@@ -12,7 +12,7 @@ export const Toast = () => {
       toastHandler();
     }, 3000);
     return () => clearTimeout(timeout);
-  }, [showToast]);
+  },[]);
 
   return (
     <div className={`alert alert-${type} toast`}>

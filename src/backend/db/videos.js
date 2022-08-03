@@ -25,25 +25,6 @@ export const videos = [
   },
 
   {
-    _id: "c6WSS7HyKQA",
-    title: "Komi Can't Communicate Season 2 - Official Trailer",
-    desc: ``,
-    uploadDate: "Mar 16, 2022",
-    thumbnail: {
-      src: "https://img.youtube.com/vi/c6WSS7HyKQA/0.jpg",
-      alt: "Komi Can't Communicate Season 2 - Official Trailer",
-    },
-    categoryName: "Trailers",
-    creator: {
-      name: "AniTV",
-      avatar:
-        "https://yt3.ggpht.com/vr0sPsaHSKIDyWCIZt9AKtemHwWnS27Ple8aP2CzZ_OC4uW1mJAm4dJK5Anbcpid9-F12Bi-=s88-c-k-c0x00ffffff-no-rj",
-    },
-    popular: true,
-    newArrival: true,
-  },
-
-  {
     _id: "6DU-wuD_ykI",
     title: "Kaguya Sama Love is War Season 3 - Official Trailer",
     desc: `Kaguya Sama Love is War Season 3 Begins in April 2022!`,

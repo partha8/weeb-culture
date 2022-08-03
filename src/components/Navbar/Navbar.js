@@ -21,12 +21,6 @@ export const Navbar = () => {
         </h2>
       </Link>
 
-      {/* search bar */}
-      <section className="search-bar">
-        <input placeholder="search videos" className="search" type="text" />
-        <AiOutlineSearch className="search-icon" />
-      </section>
-
       {/* account */}
       <section onClick={() => setOpenDrawer(true)} className="account-section">
         <FaUserAlt className="user" />

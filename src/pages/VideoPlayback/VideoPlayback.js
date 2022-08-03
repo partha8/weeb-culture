@@ -8,6 +8,10 @@ import { useStateContext } from "../../context/StateProvider";
 import { VideoCard } from "../Explore/components/VideoCard";
 import { shuffleArray } from "../../utils/shuffleArray";
 import { addToHistory } from "../../utils/videoUtils";
+import { AiOutlineLike, AiFillLike } from "react-icons/ai";
+import { BsPlusCircle, BsDashCircle } from "react-icons/bs";
+import { useAuthContext } from "../../context/AuthProvider";
+import { addToLikedVideos, addToWatchLater } from "../../utils/videoUtils";
 
 export const VideoPlayback = () => {
   const encodedToken = localStorage.getItem("token");
@@ -15,7 +19,18 @@ export const VideoPlayback = () => {
   let { id } = useParams();
   const [video, setvideo] = useState();
   const [loading, setLoading] = useState(true);
-  const { videos, videosDispatch } = useStateContext();
+  const {
+    videos,
+    watchLater,
+    likedVideos,
+    videosDispatch,
+    toastHandler,
+    setShowPlaylistModal,
+  } = useStateContext();
+
+  const { userState } = useAuthContext();
+
+  const [popularVideos, setPopularVideos] = useState([]);
 
   useEffect(() => {
     (async () => {
@@ -29,10 +44,11 @@ export const VideoPlayback = () => {
         console.error(error);
       }
     })();
+    setPopularVideos(() =>
+      shuffleArray(videos.filter((video) => video.popular === true))
+    );
   }, [id]);
 
-  const popularVideos = videos.filter((video) => video.popular === true);
-  const shuffledArray = shuffleArray(popularVideos);
   return (
     <>
       <div className="container">
@@ -55,22 +71,107 @@ export const VideoPlayback = () => {
                     }}
                   />
                 </div>
+
                 <div className="text-container">
                   <h3 className="underline">{video.title}</h3>
+
                   <div className="creator-details">
-                    <img
-                      className="avatar avatar-standard"
-                      src={video.creator.avatar}
-                      alt={video.creator.name}
-                    />
-                    <span>{video.creator.name}</span>
+                    <div className="flex-center">
+                      <img
+                        className="avatar avatar-standard"
+                        src={video.creator.avatar}
+                        alt={video.creator.name}
+                      />
+                      <span>{video.creator.name}</span>
+                    </div>
+
+                    <div className="btn-container">
+                      <button
+                        onClick={() => {
+                          if (userState._id) {
+                            addToLikedVideos(
+                              video,
+                              likedVideos,
+                              videosDispatch,
+                              toastHandler
+                            );
+                          } else {
+                            toastHandler(
+                              true,
+                              "You need to login first!",
+                              "error"
+                            );
+                          }
+                        }}
+                        className="btn"
+                      >
+                        {likedVideos.some((item) => item._id === video._id) ? (
+                          <div className="flex-center">
+                            <AiFillLike /> <p>Liked</p>
+                          </div>
+                        ) : (
+                          <div className="flex-center">
+                            <AiOutlineLike /> <p>Like</p>
+                          </div>
+                        )}
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          if (userState._id) {
+                            setShowPlaylistModal(true);
+                            videosDispatch({
+                              type: "SET_SELECTED_VIDEO",
+                              payload: video,
+                            });
+                          } else {
+                            toastHandler(
+                              true,
+                              "You need to login first!",
+                              "error"
+                            );
+                          }
+                        }}
+                        className="btn flex-center"
+                      >
+                        <BsPlusCircle />
+                        <p>Save</p>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          if (userState._id) {
+                            addToWatchLater(
+                              video,
+                              watchLater,
+                              videosDispatch,
+                              toastHandler
+                            );
+                          } else {
+                            toastHandler(
+                              true,
+                              "You need to login first!",
+                              "error"
+                            );
+                          }
+                        }}
+                        className="btn flex-center"
+                      >
+                        {watchLater.some((item) => item._id === video._id) ? (
+                          <BsDashCircle />
+                        ) : (
+                          <BsPlusCircle />
+                        )}{" "}
+                        <p>Watch Later</p>
+                      </button>
+                    </div>
                   </div>
                   <p>{video.desc}</p>
                 </div>
               </section>
               <div className="must-watch">
                 <h4 className="text-center underline">Must Watch</h4>
-                {shuffledArray.map((item) => {
+                {popularVideos.map((item) => {
                   return <VideoCard key={item._id} {...item} />;
                 })}
               </div>

@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
   const [userState, authDispatch] = useReducer(authReducer, initalAuthState);
   let navigate = useNavigate();
   let location = useLocation();
-  const from = location.state?.from.pathname || "/profile";
+  const from = location.state?.from.pathname;
 
   const login = async ({ email, password }, toastHandler) => {
     try {
@@ -44,7 +44,11 @@ export const AuthProvider = ({ children }) => {
           `Welcome back ${response.data.foundUser.firstName}!`,
           "success"
         );
-        navigate(from, { replace: true });
+        if (from) {
+          navigate(from, { replace: true });
+        } else {
+          navigate(-1);
+        }
       }
     } catch (error) {
       toastHandler(true, "Error, check console", "error");
@@ -88,7 +92,7 @@ export const AuthProvider = ({ children }) => {
             `Welcome ${firstName} to Weeb Culture!`,
             "success"
           );
-          navigate("/profile");
+          navigate(-1);
         }
       }
     } catch (error) {

@@ -5,8 +5,8 @@ import { useClickOutside } from "../../../hooks";
 import { BsPlusCircle, BsDashCircle } from "react-icons/bs";
 import { useStateContext } from "../../../context/StateProvider";
 import { addToLikedVideos, addToWatchLater } from "../../../utils/videoUtils";
-import { useLocation } from "react-router-dom";
 import { useAuthContext } from "../../../context/AuthProvider";
+import { AiOutlineLike, AiFillLike } from "react-icons/ai";
 
 export const CTABtn = (video) => {
   const [dropdown, setDropdown] = useState(false);
@@ -67,9 +67,9 @@ export const CTABtn = (video) => {
               className="item"
             >
               {likedVideos.some((item) => item._id === video._id) ? (
-                <BsDashCircle />
+                <AiFillLike />
               ) : (
-                <BsPlusCircle />
+                <AiOutlineLike />
               )}
               Like Video
             </li>
