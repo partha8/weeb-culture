@@ -11,14 +11,14 @@ import trailers from "../../assets/trailers.jpg";
  * */
 
 export const categories = [
-  {
-    _id: uuid(),
-    categoryName: "Trailers",
-    image: {
-      src: trailers,
-      alt: "trailers",
-    },
-  },
+  // {
+  //   _id: uuid(),
+  //   categoryName: "Trailers",
+  //   image: {
+  //     src: trailers,
+  //     alt: "trailers",
+  //   },
+  // },
   {
     _id: uuid(),
     categoryName: "AMVs",
